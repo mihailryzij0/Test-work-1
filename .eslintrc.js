@@ -1,4 +1,13 @@
 module.exports = {
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        moduleDirectory: ["node_modules", "src/"],
+      },
+    },
+  },
+  parser: "@typescript-eslint/parser",
   env: {
     browser: true,
     es2021: true,
@@ -10,6 +19,16 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
     "import/prefer-default-export": "off",
     "no-console": "off",
     "no-unused-expressions": "off",
@@ -28,5 +47,5 @@ module.exports = {
       },
     ],
   },
-  plugins: ["jest"],
+  plugins: ["jest", "@typescript-eslint"],
 };

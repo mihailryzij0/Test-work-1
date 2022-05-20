@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { stat } from "fs";
 
 interface User {
   id: number;
@@ -52,7 +51,7 @@ export const getListUsers = createAsyncThunk(
         "Попытка загрузить пользователей не удалась, попробуйте позже"
       );
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue(error);
     }
   }
 );
@@ -68,7 +67,7 @@ const UsersSlice = createSlice({
         state.users = action.payload;
       }
     });
-    builder.addCase(getListUsers.pending, (state, action) => {
+    builder.addCase(getListUsers.pending, (state) => {
       state.status = "pending";
     });
     builder.addCase(getListUsers.rejected, (state, action) => {
@@ -77,7 +76,5 @@ const UsersSlice = createSlice({
     });
   },
 });
-
-export const {} = UsersSlice.actions;
 
 export default UsersSlice.reducer;

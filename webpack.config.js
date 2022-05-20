@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const { NODE_ENV } = process.env;
 module.exports = {
-  entry: resolve(__dirname, "src/index.ts"),
+  entry: resolve(__dirname, "./src/index.tsx"),
   output: {
     filename: "index.js",
     path: resolve(`${__dirname}/dist`),
@@ -16,13 +16,13 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: [".js", ".ts"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devtool: NODE_ENV === "production" ? "hidden-source-map" : "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.([jt])s$/,
+        test: /\.(j|t)sx?$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      chunks: ["index"],
+   
     }),
     new BrowserSyncPlugin(
       {
@@ -71,7 +71,10 @@ module.exports = {
   },
   devServer: {
     compress: true,
+    historyApiFallback: true,
+    open: true,
     port: 9000,
+
     client: {
       logging: "info",
     },

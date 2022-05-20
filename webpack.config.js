@@ -32,6 +32,10 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+      },
+      {
         test: /\.(woff\woff2\/eot\ttf\/otf)$/i,
         type: "asset/resource",
       },
@@ -49,7 +53,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-   
     }),
     new BrowserSyncPlugin(
       {
@@ -62,9 +65,7 @@ module.exports = {
       }
     ),
 
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-    }),
+    new MiniCssExtractPlugin(),
   ],
   optimization: {
     minimizer: ["...", new CssMinimizerPlugin()],

@@ -11,6 +11,7 @@ module.exports = {
     filename: "index.js",
     path: resolve(`${__dirname}/dist`),
     clean: true,
+    publicPath: "/",
     environment: {
       arrowFunction: false,
     },
@@ -37,11 +38,15 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "./image/[name][ext]",
-        },
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
     ],
   },

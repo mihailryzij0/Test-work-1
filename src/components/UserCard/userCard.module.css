@@ -1,0 +1,14 @@
+.card {
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.contentBox {
+  padding: 17px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}

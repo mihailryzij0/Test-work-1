@@ -7,6 +7,7 @@ import {
 } from "../components/hooks/redux-hooks";
 import UserCard from "../components/UserCard/UserCard";
 import { getListUsers } from "../store/slices/usersSlice";
+import Baner from "../components/Baner/Baner";
 
 export default function StartPage() {
   const dispatch = useAppDispatch();
@@ -17,13 +18,16 @@ export default function StartPage() {
   return userState.status === "pending" ? (
     <CircularProgress />
   ) : (
-    <div className={`${styles.content} ${styles.container}`}>
-      <section className={styles.listUsers}>
-        {userState.users?.map((userData) => (
-          <UserCard key={userData.id} userData={userData} />
-        ))}
-      </section>
-      <section className={styles.previewAllPosts}></section>
-    </div>
+    <>
+      <Baner />
+      <div className={`${styles.content} ${styles.container}`}>
+        <section className={styles.listUsers}>
+          {userState.users?.map((userData) => (
+            <UserCard key={userData.id} userData={userData} />
+          ))}
+        </section>
+        <section className={styles.previewAllPosts}></section>
+      </div>
+    </>
   );
 }

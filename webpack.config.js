@@ -38,15 +38,11 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "./images/[contenthash][ext]",
+        },
       },
     ],
   },

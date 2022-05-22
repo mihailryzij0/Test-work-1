@@ -7,7 +7,7 @@ import {
 } from "../components/hooks/redux-hooks";
 import UserCard from "../components/UserCard/UserCard";
 import { getListUsers } from "../store/slices/usersSlice";
-import Baner from "../components/Baner/Baner";
+import Baner from "../components/Banner/Banner";
 
 export default function StartPage() {
   const dispatch = useAppDispatch();

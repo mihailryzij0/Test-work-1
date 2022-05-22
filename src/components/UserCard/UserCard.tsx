@@ -17,7 +17,9 @@ export default function UserCard({ userData }: UserCardProps) {
             <p className={styles.card__city}>{userData.address.city}</p>
           </div>
         </div>
-        <Button variant="contained">Смотреть профиль</Button>
+        <Button sx={{ mt: 2 }} variant="contained">
+          Смотреть профиль
+        </Button>
       </div>
     </div>
   );

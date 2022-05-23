@@ -12,8 +12,8 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/post" element={<PostPage />} />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/post/" element={<PostPage />} />
+        <Route path="/user/:id" element={<UserPage />} />
         <Route path="/post-list" element={<UserPostList />} />
       </Routes>
     </>

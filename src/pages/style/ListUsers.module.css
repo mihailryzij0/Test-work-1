@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listUsers {
+  flex-basis: 60%;
+}
+
+.container {
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.previewAllPosts {
+  flex-basis: 30%;
+  padding: 10px;
+  border: 1px solid #000;
+}

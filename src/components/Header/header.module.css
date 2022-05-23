@@ -1,0 +1,25 @@
+.header {
+  background-color: #101010;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 60px;
+}
+
+.buttonGroup button:nth-child(2) {
+  margin-left: 12px;
+}
